@@ -1,8 +1,17 @@
 body {
     font-family: Oswald, sans-serif;
-    color: #252525;
+    color: white;
     margin: 0;
     padding: 0;
+}
+
+.profit-calc-wrapper .row .column div {
+    line-height: 34px;
+}
+
+.profit-calc-wrapper .row .column .result {
+    line-height: 50px;
+    font-size: 24px;
 }
 
 input {

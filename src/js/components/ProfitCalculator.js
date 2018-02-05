@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import priceData from '../../pricedata.json';
+
+const pricePerCoin = priceData.bpi.USD.rate_float;
 
 const Wrapper = styled.div`
   background: #3aac59;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   padding-bottom: 20px;
 `
 
@@ -13,7 +16,7 @@ const Heading = styled.h1`
 `
 
 const StorageInput = styled.input`
-  margin-left: 10px;
+  padding-left: 10px;
 `
 
 const Result = styled.div`
@@ -33,11 +36,18 @@ class ProfitCalculator extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <Wrapper className="profit-calc-wrapper">
         <Heading>Calculator</Heading>
-        <span>Storage space (TB):</span>
-        <StorageInput value={this.state.value} onChange={this.handleChange} />
-        <Result>Result:{this.state.value}</Result>
+        <div className="row">
+          <div className=" column col-sm-6 text-right">
+            <div>Storage space (TB):</div>
+            <div className="result">Result:</div>
+          </div>
+          <div className="column col-sm-6 text-left">
+            <StorageInput value={this.state.value} onChange={this.handleChange} />
+            <div className="result">{this.state.value*pricePerCoin}</div>
+          </div>
+        </div>
       </Wrapper>
     );
   }
