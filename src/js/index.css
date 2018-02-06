@@ -1,17 +1,40 @@
 body {
     font-family: Oswald, sans-serif;
+    font-weight: 300px;
     color: white;
     margin: 0;
     padding: 0;
+    background: url('../images/blurred-green.jpg');
+}
+
+.logo-wrapper {
+    padding: 10px 0;
+}
+
+.logo-wrapper svg {
+    width: 175px;
+    height: auto;
+}
+.logo-wrapper svg path {
+    fill: #fffe;
+}
+
+.profit-calc-wrapper {
+    border: 1px solid #eeea;
+}
+
+.profit-calc-wrapper .row {
+    padding-top: 15px;
 }
 
 .profit-calc-wrapper .row .column div {
     line-height: 34px;
+    color: #fffe;
 }
 
 .profit-calc-wrapper .row .column .result {
     line-height: 50px;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 input {
