@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ProfitCalculator from "./components/ProfitCalculator.js";
-import Tabs from "./components/Tabs.js";
-import Tab from "./components/Tab.js";
 import styled from 'styled-components';
 import './index.css';
 

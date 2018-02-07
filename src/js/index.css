@@ -7,6 +7,10 @@ body {
     background: url('../images/blurred-green.jpg');
 }
 
+#app {
+    
+}
+
 .logo-wrapper {
     padding: 10px 0;
 }
@@ -21,25 +25,52 @@ body {
 
 .profit-calc-wrapper {
     border: 1px solid #eeea;
+    -webkit-box-shadow: 0px 10px 43px -8px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 10px 43px -8px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 43px -8px rgba(0,0,0,0.5);
 }
 
 .profit-calc-wrapper .row {
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .profit-calc-wrapper .row .column div {
     line-height: 34px;
     color: #fffe;
+    margin-top: 10px;
+}
+
+.profit-calc-wrapper .row .column .result-wrapper {
+    margin-top: 20px;
 }
 
 .profit-calc-wrapper .row .column .result {
     line-height: 50px;
     font-size: 20px;
+    margin-top: 0;
 }
 
 input {
+    display: block;
     border: none;
     border-radius: 4px;
-    padding: 5px;
+    padding: 5px 5px 5px 12px;
     letter-spacing: 1px;
+    max-width: 40px;
+    background: #fffd;
+    margin-top: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text-section {
+    font-size: 14px;
+}
+
+.quote {
+    font-size: 24px;
 }

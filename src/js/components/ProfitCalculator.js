@@ -12,15 +12,21 @@ const Wrapper = styled.div`
 `
 
 const Heading = styled.h1`
-  font-size: 28px;
+  font-size: 26px;
   line-height: 75px;
   border-bottom: 1px solid #eeea;
 `
 
 const StorageInput = styled.input`
-  padding-left: 10px;
-  max-width: 100px;
-  background: #fffd;
+  
+`
+
+const BaseTargetInput = styled.input`
+
+`
+
+const CoinsPerBlockInput = styled.input`
+
 `
 
 const Result = styled.div`
@@ -41,15 +47,25 @@ class ProfitCalculator extends React.Component {
   render() {
     return (
       <Wrapper className="profit-calc-wrapper">
-        <Heading>Calculator</Heading>
+        <Heading>Chia Mining Profit Calculator</Heading>
         <div className="row">
           <div className=" column col-6 text-right">
-            <div>Storage space (TB):</div>
-            <div className="result">Result:</div>
+            <div>Coins Per Block:</div>
+            <div>Base Target:</div>
+            <div>Total Plot Size (TB):</div>
+            <div className="result-wrapper">
+              <div className="result">Chia Monthly:</div>
+              <div className="result">USD Monthly:</div>
+            </div>
           </div>
           <div className="column col-6 text-left">
+            <CoinsPerBlockInput value={this.state.value} onChange={this.handleChange} />
+            <BaseTargetInput value={this.state.value} onChange={this.handleChange} />
             <StorageInput value={this.state.value} onChange={this.handleChange} />
-            <div className="result">{this.state.value*pricePerCoin}</div>
+            <div className="result-wrapper">
+              <div className="result">{Math.round( this.state.value*pricePerCoin * 10) / 10}</div>
+              <div className="result">${Math.round( this.state.value*pricePerCoin * 10) / 10}</div>
+            </div>
           </div>
         </div>
       </Wrapper>
