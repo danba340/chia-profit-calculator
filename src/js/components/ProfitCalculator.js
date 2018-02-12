@@ -74,3 +74,25 @@ class ProfitCalculator extends React.Component {
 }
 
 export default ProfitCalculator;
+
+/*
+    function calculateMining() {
+      var a = $("#plotUnit").val().trim(),
+	  c = parseInt($("#baseTarget").val()),
+	  d = parseInt($("#coinsPerBlock").val()),
+	  b = 1;
+
+      switch (a) {
+        case "PB":
+          b *= 1E3;
+        case "TB":
+          b *= 1E3;
+        case "GB":
+          b *= 1E3
+      }
+      var magicFactor = 0.85;
+      a = 4 * parseFloat($("#plotSize").val()) * b;
+      a = Math.pow(2, 64) / c / a;
+      d = 3600 * d / a;
+      a = 24 * d * magicFactor;
+*/
