@@ -36,12 +36,18 @@ const Result = styled.div`
 class ProfitCalculator extends React.Component {
   constructor() {
     super();
-    this.state = {value: ''};
+    this.state = {calc: {
+      CPB: 1159,
+      BT: 70424,
+      S: 10
+    }};
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChange(propertyName, event) {
+    const calc = this.state.calc;
+    calc[propertyName] = event.target.value;
+    this.setState({ calc: calc });
   }
 
   render() {
@@ -59,12 +65,12 @@ class ProfitCalculator extends React.Component {
             </div>
           </div>
           <div className="column col-6 text-left">
-            <CoinsPerBlockInput value={this.state.value} onChange={this.handleChange} />
-            <BaseTargetInput value={this.state.value} onChange={this.handleChange} />
-            <StorageInput value={this.state.value} onChange={this.handleChange} />
+            <CoinsPerBlockInput value={this.state.calc.CPB} onChange={this.handleChange.bind(this, 'CPB')} />
+            <BaseTargetInput value={this.state.calc.BT} onChange={this.handleChange.bind(this, 'BT')} />
+            <StorageInput value={this.state.calc.S} onChange={this.handleChange.bind(this, 'S')} />
             <div className="result-wrapper">
-              <div className="result">{Math.round( this.state.value*pricePerCoin * 10) / 10}</div>
-              <div className="result">${Math.round( this.state.value*pricePerCoin * 10) / 10}</div>
+              <div className="result">{ Math.round( 20.4 * (3600 * this.state.calc.CPB / (Math.pow(2, 64) / this.state.calc.BT / (4 * this.state.calc.S*1000000*30))))}</div>
+              <div className="result">${ Math.round( 20.4 * (3600 * this.state.calc.CPB / (Math.pow(2, 64) / this.state.calc.BT / (4 * this.state.calc.S*1000000*30))))/100 }</div>
             </div>
           </div>
         </div>
