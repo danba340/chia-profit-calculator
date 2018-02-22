@@ -1,8 +1,8 @@
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
  
 const getPriceData = () => {
-    https.get('https://api.coindesk.com/v1/bpi/currentprice.json', (resp) => {
+    http.get('http://burstcoin.cc/network/json', (resp) => {
         let data = '';
        
         // A chunk of data has been recieved.

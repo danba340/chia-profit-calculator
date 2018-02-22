@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import priceData from '../../pricedata.json';
 
-const pricePerCoin = priceData.bpi.USD.rate_float;
+const baseTarget = priceData[0].baseTarget;
+console.log(priceData);
+window.priceData = priceData;
 
 const Wrapper = styled.div`
   background: #0517084a;
@@ -38,7 +40,7 @@ class ProfitCalculator extends React.Component {
     super();
     this.state = {calc: {
       CPB: 1159,
-      BT: 70424,
+      BT: baseTarget ? baseTarget : 70000,
       S: 10
     }};
     this.handleChange = this.handleChange.bind(this);
@@ -58,7 +60,7 @@ class ProfitCalculator extends React.Component {
           <div className=" column col-6 text-right">
             <div>Coins Per Block:</div>
             <div>Base Target:</div>
-            <div>Total Plot Size (TB):</div>
+            <div>Total Plot Size(TB):</div>
             <div className="result-wrapper">
               <div className="result">Chia Monthly:</div>
               <div className="result">USD Monthly:</div>
@@ -70,7 +72,7 @@ class ProfitCalculator extends React.Component {
             <StorageInput value={this.state.calc.S} onChange={this.handleChange.bind(this, 'S')} />
             <div className="result-wrapper">
               <div className="result">{ Math.round( 20.4 * (3600 * this.state.calc.CPB / (Math.pow(2, 64) / this.state.calc.BT / (4 * this.state.calc.S*1000000*30))))}</div>
-              <div className="result">${ Math.round( 20.4 * (3600 * this.state.calc.CPB / (Math.pow(2, 64) / this.state.calc.BT / (4 * this.state.calc.S*1000000*30))))/100 }</div>
+              <div className="result">Not evaluated</div>
             </div>
           </div>
         </div>

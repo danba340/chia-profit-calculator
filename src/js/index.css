@@ -95,3 +95,8 @@ a {
     font-size: 24px;
     font-style: italic;
 }
+
+.column.col-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
